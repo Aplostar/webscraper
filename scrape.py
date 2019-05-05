@@ -9,21 +9,25 @@ import os
 import csv
 
 
+# URL of the website to scrape
 url = "https://techolution.app.param.ai/jobs/"
 
-CHROME_DRIVER_PATH = '/home/aplostar/MachineLearning/Web Scraping/task/chrome_driver/chromedriver'
+# Path of the webdriver
+CHROME_DRIVER_PATH = '/chromedriver'
 driver = webdriver.Chrome(executable_path=CHROME_DRIVER_PATH)
 driver.get(url)
 driver.implicitly_wait(100)
+
 string = []
 position = []
 
+# Scan for elements which contain the information about the jobs
 jobs = driver.find_elements_by_xpath("//*[@class='twelve wide computer twelve wide tablet sixteen wide mobile column']")
 for job in jobs:
 	string.append(job.text) 
 newstring = []
 for s in string:
-	s = s.split('\n')
+	s = s.split('\n') #split the strings according to job position and other data
 	position.append(s[0])
 	s=s[1]
 	newstring.append(s)
