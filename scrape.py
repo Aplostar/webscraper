@@ -11,7 +11,7 @@ import csv
 
 url = "https://techolution.app.param.ai/jobs/"
 
-CHROME_DRIVER_PATH = '/home/aplostar/MachineLearning/Web Scraping/task/chrome_driver/chromedriver'
+CHROME_DRIVER_PATH = '/chromedriver'
 driver = webdriver.Chrome(executable_path=CHROME_DRIVER_PATH)
 driver.get(url)
 driver.implicitly_wait(100)
